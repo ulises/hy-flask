@@ -1,4 +1,6 @@
 (import [flask [Flask]])
 
 (def app (Flask "hy-flask"))
-(import [app [views]])
+
+(with-decorator (.route app "/")
+  (defn index [] "Hello world!"))
